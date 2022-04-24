@@ -90,7 +90,9 @@ def pre_processamento_dpa(nome_arquivo: str) -> pd.DataFrame:
           'Muito Significativo (Barragem armazena rejeitos ou resíduos ' +
           'sólidos classificados na Classe II A - Não Inertes, segundo a NBR '+
           '10004/2004)': 5,
-          'Muito Significativo Agravado (Barragem armazena rejeitos ou resíduos sólidos classificados na Classe I - Perigosos segundo a NBR 10004/2004)': 5
+          'Muito Significativo Agravado (Barragem armazena rejeitos ou ' +
+          'resíduos sólidos classificados na Classe I - Perigosos segundo a' +
+          ' NBR 10004/2004)': 5
          },
          'Impacto sócio-econômico':
          {'Inexistente (Não existem quaisquer instalações na área afetada a ' +
