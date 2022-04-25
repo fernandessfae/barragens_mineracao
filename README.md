@@ -263,6 +263,8 @@ Apesar de ter apenas uma categoria e menos itens do que o CRI, o DPA tem uma rel
 
 <div align="justify">Podemos perceber que, no geral, em ambos os casos, todos os modelos tem diferença de acurácia bem baixa, exceto o naive bays do DPA. Então quer dizer que quanto maior a precisão do modelo, melhor ele é? Não exatamente. Isso porque a acurácia não é preciso quanto os dados são desbalanceado (o que acontece nos dados de classificação do CRI e DPA), sendo necessárias outras métricas para avaliar o desempenho dos modelos, que veremos adiante.</div><br/>
 
+## Matriz de confusão
+
 <div align="justify">A acurácia também pode ser representada pela matriz de confusão. Esta é a representação daquilo que o modelo de machine learning previu comparado com o valor real de cada classe dos dados, em forma de gráfico. Abaixo veremos um exemplo da matriz de confusão do modelo SVM. As matrizes de confusão de outros modelos serão disponibilizados nesse repositório.</div><br/>
 
 #### CRI
