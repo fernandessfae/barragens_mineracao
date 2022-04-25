@@ -29,7 +29,7 @@
     - [Acurácia](https://github.com/fernandessfae/barragens_mineracao#acur%C3%A1cia)
         - [CRI](https://github.com/fernandessfae/barragens_mineracao#cri-3)
         - [DPA](https://github.com/fernandessfae/barragens_mineracao#dpa-3)
-    - [Matriz de Confusão]()
+    - [Matriz de Confusão](https://github.com/fernandessfae/barragens_mineracao#matriz-de-confus%C3%A3o)
         - [CRI](https://github.com/fernandessfae/barragens_mineracao#cri-4)
         - [DPA](https://github.com/fernandessfae/barragens_mineracao#dpa-4)
     - [Precisão](https://github.com/fernandessfae/barragens_mineracao#precis%C3%A3o)
@@ -263,7 +263,7 @@ Apesar de ter apenas uma categoria e menos itens do que o CRI, o DPA tem uma rel
 
 <div align="justify">Podemos perceber que, no geral, em ambos os casos, todos os modelos tem diferença de acurácia bem baixa, exceto o naive bays do DPA. Então quer dizer que quanto maior a precisão do modelo, melhor ele é? Não exatamente. Isso porque a acurácia não é preciso quanto os dados são desbalanceado (o que acontece nos dados de classificação do CRI e DPA), sendo necessárias outras métricas para avaliar o desempenho dos modelos, que veremos adiante.</div><br/>
 
-## Matriz de confusão
+### Matriz de confusão
 
 <div align="justify">A acurácia também pode ser representada pela matriz de confusão. Esta é a representação daquilo que o modelo de machine learning previu comparado com o valor real de cada classe dos dados, em forma de gráfico. Abaixo veremos um exemplo da matriz de confusão do modelo SVM. As matrizes de confusão de outros modelos serão disponibilizados nesse repositório.</div><br/>
 
