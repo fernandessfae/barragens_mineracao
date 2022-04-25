@@ -1,0 +1,46 @@
+from pre_processamento_cri import pre_processamento_cri
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
+from yellowbrick.classifier import ConfusionMatrix
+import pickle
+
+# Carregamento dos dados e separaçao entre os atributos e a classe
+dados_cri = pre_processamento_cri('barragens.csv')
+previsores = dados_cri.iloc[:, 1:18].values
+classe = dados_cri.iloc[:, 0].values
+
+# Holdout (Train_test_split)
+previsores_treinamento, previsores_teste, classe_treinamento, classe_teste = \
+    train_test_split(previsores, classe, test_size=0.3, random_state=0)
+
+classificador = RandomForestClassifier()
+classificador.fit(previsores_treinamento, classe_treinamento)
+previsoes = classificador.predict(previsores_teste)
+
+precisao_modelo: float = round(accuracy_score(classe_teste, previsoes), 2)
+matriz_confusao = confusion_matrix(classe_teste, previsoes)
+
+#print(classificador.classes_)
+#print(classificador.class_count_)
+#print(classificador.class_prior_)
+
+# Geração da matriz de confusão e métricas de classificação do modelo (Holdout)
+mc_holdout = ConfusionMatrix(classificador,
+                            encoder={0: 'Não se aplica', 1: 'Baixo',
+                                     2: 'Médio', 3: 'Alto'})
+mc_holdout.fit(previsores_treinamento, classe_treinamento)
+mc_holdout.score(previsores_teste, classe_teste)
+mc_holdout.show();
+
+print(classification_report(classe_teste,
+                            previsoes,
+                            target_names=['Não se aplica', 'Baixa',
+                                          'Média', 'Alta']))
+
+# Salvando o modelo treinado para classificação CRI
+saida_pickle = open("classificador_ml_cri.pkl", "wb")
+pickle.dump(classificador, saida_pickle)
+saida_pickle.close()
