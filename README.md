@@ -111,7 +111,7 @@ qual estão identificados os potenciais cenários de emergências da barragem, e
 <div align="center"><img src="imagens_analise/pnsb.png"/></div>
 <div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
 
-<div align="center">Observando o gráfico, percebe-se que 54,46% das barragens estão inclusas no PNSB, enquanto 45,54% não. Isso mostra que a maioria das barragens seguem todos os parâmetros exigidos por lei para determinar o seu funcionamento.</div>
+<div align="justify">Observando o gráfico, percebe-se que 54,46% das barragens estão inclusas no PNSB, enquanto 45,54% não. Isso mostra que a maioria das barragens seguem todos os parâmetros exigidos por lei para determinar o seu funcionamento.</div>
 
 ### Nível de emergência
 
@@ -120,7 +120,7 @@ qual estão identificados os potenciais cenários de emergências da barragem, e
 <div align="center"><img src="imagens_analise/nivel_emergencia.png"/></div>
 <div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
 
-<div align="center">Como podemos perceber no gráfico, esmagadora maioria das barragens estão sem ou baixo nível de emergência. O que é um ótimo sinal, mostrando que a maioria das barragens estão com o seu monitoramento em dia.</div><br/>
+<div align="justify">Como podemos perceber no gráfico, esmagadora maioria das barragens estão sem ou baixo nível de emergência. O que é um ótimo sinal, mostrando que a maioria das barragens estão com o seu monitoramento em dia.</div><br/>
 
 ### Minérios presentes
 
@@ -129,7 +129,7 @@ qual estão identificados os potenciais cenários de emergências da barragem, e
 <div align="center"><img src="imagens_analise/minerio_barragem.png"/></div>
 <div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
 
-<div align="center">Vemos que a maioria das barragens não tem esse tipo de minério, mas, tirando essa opção, vemos que o <b>ferro</b>, <b>ouro</b> e <b>cobre</b> são as 3 primeiras opções nas  composições de barragens de minérios.</div><br/>
+<div align="justify">Vemos que a maioria das barragens não tem esse tipo de minério, mas, tirando essa opção, vemos que o <b>ferro</b>, <b>ouro</b> e <b>cobre</b> são as 3 primeiras opções nas  composições de barragens de minérios.</div><br/>
 
 <div align="justify">Como podemos perceber através dos gráficos, as informações de destaque são as seguintes: Grande parte das barragens foram construídas pela VALE e suas filiais, a localização da maioria das barragens ficam em Minas Gerais, a maioria das barragens tem a categoria de risco baixa ou inexistente, porém em relação ao DPA, uma grande parte não existe, mas há uma boa parte com o DPA alto, a maioria das barragens não necessitam do PAEBM, das mesma forma que grande parte das barragens não se enquadram no PNSB, a grande maioria também estão sem algum tipo de nível de emergência e os resíduos presentes nessas barragens não foram informados ou não possuem.</div><br/>
 
