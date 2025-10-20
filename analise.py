@@ -1,88 +1,120 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 from numpy import arange
+import os
 
-def grafico_barra(dados: pd.DataFrame, coluna: str,
-                  qt_barra: int, titulo: str) -> None:
-    """Função para geração dos gráficos de barras de acordo com a coluna
-       desejada, utilizando a contagem de cada valor da coluna.
-       
-       :param dados: Dados a serem utilizados para geração do gráfico
-       :type dados: pd.DataFrame
-       :param coluna: Nome da coluna para contagem dos valores dela
-       :tyoe coluna: str
-       :param qt_barra: Quantidade de barras a serem exibidas no gráfico
-       :type qt_barra: str
-       :param titulo: Nome do título do gráfico de barra
-       :type titulo: str
-    """
+def ensure_directory_exists(directory: str) -> None:
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+def is_dataframe(obj) -> bool:
+    return isinstance(obj, pd.DataFrame)
+
+def column_in_dataframe(column: str, df: pd.DataFrame) -> bool:
+    if not is_dataframe(df):
+        raise ValueError("The provided object is not a DataFrame.")
+    return column in df.columns
+
+def generate_bar_graphic(df: pd.DataFrame, column: str,
+                  bars_quantity: int, title: str, image_name: str) -> None:
+    
+    if not is_dataframe(df):
+        raise ValueError("The provided object is not a DataFrame.")
+    
+    if not column_in_dataframe(column, df):
+        raise ValueError(
+            f"The column '{column}' does not exist in the DataFrame.")
+    
+    if type(bars_quantity) is not int or bars_quantity <= 0:
+        raise ValueError("The 'bars_quantity' must be a positive integer.")
+    
+    ensure_directory_exists('imagens_analise')
+    
     plt.figure(figsize=(15, 5))
-    if qt_barra >= 10:
-        dados.value_counts(coluna)[:qt_barra].sort_values().plot(
-            kind='barh', color=plt.cm.Set1(arange(qt_barra-1, -1, -1)))
+    if bars_quantity >= 10:
+        df.value_counts(column)[:bars_quantity].sort_values().plot(
+            kind='barh', color=plt.cm.Set1(arange(bars_quantity-1, -1, -1)))
         plt.xticks(fontsize=20, rotation=0)
     else:
-        dados.value_counts(coluna)[:qt_barra].plot(
-            kind='bar', color=plt.cm.Set2(arange(qt_barra)))
+        df.value_counts(column)[:bars_quantity].plot(
+            kind='bar', color=plt.cm.Set2(arange(bars_quantity)))
         plt.xticks(rotation=0, fontsize=20)
-    plt.title(titulo, fontdict={'fontsize': 20, 'fontweight':'bold'})
-    plt.xlabel(coluna, fontdict={'fontsize': 20})
+    plt.title(title, fontdict={'fontsize': 20, 'fontweight':'bold'})
+    plt.xlabel(column, fontdict={'fontsize': 20})
     plt.ylabel('Contagem', fontdict={'fontsize': 20})
     plt.yticks(fontsize=20)
+    name_image_file: str = f'imagens_analise/{image_name}.png'
+    plt.savefig(name_image_file, dpi=300, bbox_inches="tight")
+    print(f'Graphic saved in: {name_image_file}')
     plt.show();
     return None
 
+def generate_sector_graphic(
+        df: pd.DataFrame, column: str, title: str, image_name: str) -> None:
 
-def grafico_setor(dados: pd.DataFrame, coluna: str, titulo: str) -> None:
-    """Função para geração dos gráficos de setor, também conhecida como
-       gráfico de pizza, de acordo com a coluna desejada, utilizando a
-       contagem de cada valor da coluna.
-       
-       :param dados: Dados a serem utilizados para geração do gráfico
-       :type dados: pd.DataFrame
-       :param coluna: Nome da coluna para contagem dos valores dela
-       :tyoe coluna: str
-       :param titulo: Nome do título do gráfico de setor
-       :type titulo: str
-    """
-    dados_setor: pd.DataFrame = dados.value_counts(coluna).reset_index()
+    if not is_dataframe(df):
+        raise ValueError("The provided object is not a DataFrame.")
+    
+    if not column_in_dataframe(column, df):
+        raise ValueError(
+            f"The column '{column}' does not exist in the DataFrame.")
+    
+    ensure_directory_exists('imagens_analise')
+
+    sector_data: pd.DataFrame = df.value_counts(column).reset_index()
+    sector_data.columns = [column, 'count']
     plt.figure(figsize=(10, 5))
-    plt.title(titulo, fontdict={'fontsize': 20, 'fontweight':'bold'})
-    plt.pie(dados_setor[0], labels=dados_setor[coluna],
-            colors=plt.cm.Set1(arange(len(dados_setor[0]))), autopct="%0.2f%%",
-            textprops={'fontsize': 20})
+    plt.title(title, fontdict={'fontsize': 20, 'fontweight':'bold'})
+    plt.pie(
+        sector_data['count'], labels=sector_data[column],
+        colors=['red', 'blue'] if column == 'Necessita de PAEBM' else ['blue', 'red'],
+        autopct="%0.2f%%", textprops={'fontsize': 20})
+    name_image_file: str = f'imagens_analise/{image_name}.png'
+    plt.savefig(name_image_file, dpi=300, bbox_inches="tight")
+    print(f'Graphic saved in: {name_image_file}')
     plt.show();
     return None
 
 
-dados_mineracao: pd.DataFrame = pd.read_csv(
-    'barragens.csv', sep=';', encoding='latin-1')
+if __name__ == '__main__':
+    data_dam_mining: pd.DataFrame = pd.read_csv(
+        'data/barragens.csv', sep=';', encoding='latin-1')
 
-#dados_mineracao['nome_coluna'].isnull().sum()
-#dados_mineracao.value_counts('nome_coluna')
+    #data_dam_mining['column_name'].isnull().sum()
+    #data_dam_mining.value_counts('column_name')
 
-grafico_barra(dados_mineracao, 'Empreendedor',
-              10, '10 empresas com maior quantidade de barragens contruídas.')
+    generate_bar_graphic(
+        data_dam_mining, 'Empreendedor',
+        10, '10 empresas com maior quantidade de barragens contruídas.',
+        'empreendedor')
 
-grafico_barra(dados_mineracao,'UF',
-              10, '10 estados com maior quantidade de barragens contruídas.')
+    generate_bar_graphic(
+        data_dam_mining,'UF',
+        10, '10 estados com maior quantidade de barragens contruídas.',
+        'uf')
 
-grafico_barra(dados_mineracao,'Categoria de Risco - CRI',
-              4, 'Quantidade de barragens em relação a CRI')
+    generate_bar_graphic(
+        data_dam_mining,'Categoria de Risco - CRI',
+        4, 'Quantidade de barragens em relação a CRI',
+        'cri')
 
-grafico_barra(dados_mineracao,'Dano Potencial Associado - DPA',
-              4, 'Quantidade de barragens em relação ao DPA')
+    generate_bar_graphic(
+        data_dam_mining,'Dano Potencial Associado - DPA',
+        4, 'Quantidade de barragens em relação ao DPA',
+        'dpa')
 
-grafico_setor(dados_mineracao,
-              'Necessita de PAEBM',
-              'As barragens estão inclusas no PAEBM?')
+    generate_sector_graphic(data_dam_mining, 'Necessita de PAEBM',
+                'As barragens estão inclusas no PAEBM?', 'paebm')
 
-grafico_setor(dados_mineracao,
-              'Inserido na PNSB',
-              'As barragens estão inclusas na PNSB?')
+    generate_sector_graphic(data_dam_mining, 'Inserido na PNSB',
+                            'As barragens estão inclusas na PNSB?', 'pnsb')
 
-grafico_barra(dados_mineracao,'Nível de Emergência',
-              4, 'Quantidade de barragens em relação ao nível de emergência')
+    generate_bar_graphic(
+        data_dam_mining,'Nível de Emergência',
+        4, 'Quantidade de barragens em relação ao nível de emergência',
+        'nivel_emergencia')
 
-grafico_barra(dados_mineracao, 'Minério principal presente no reservatório',
-              10, '10 Principais minérios presentes nas barragens de mineração')
+    generate_bar_graphic(
+        data_dam_mining, 'Minério principal presente no reservatório',
+        10, '10 Principais minérios presentes nas barragens de mineração',
+        'minerio_barragem')
