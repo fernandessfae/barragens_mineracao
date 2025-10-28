@@ -16,7 +16,8 @@ def column_in_dataframe(column: str, df: pd.DataFrame) -> bool:
     return column in df.columns
 
 def generate_bar_graphic(df: pd.DataFrame, column: str,
-                  bars_quantity: int, title: str, image_name: str) -> None:
+                  bars_quantity: int, title: str, image_name: str,
+                  output_directory: str = 'imagens_analise') -> None:
     
     if not is_dataframe(df):
         raise ValueError("The provided object is not a DataFrame.")
@@ -28,7 +29,7 @@ def generate_bar_graphic(df: pd.DataFrame, column: str,
     if type(bars_quantity) is not int or bars_quantity <= 0:
         raise ValueError("The 'bars_quantity' must be a positive integer.")
     
-    ensure_directory_exists('imagens_analise')
+    ensure_directory_exists(output_directory)
     
     plt.figure(figsize=(15, 5))
     if bars_quantity >= 10:
@@ -43,7 +44,7 @@ def generate_bar_graphic(df: pd.DataFrame, column: str,
     plt.xlabel(column, fontdict={'fontsize': 20})
     plt.ylabel('Contagem', fontdict={'fontsize': 20})
     plt.yticks(fontsize=20)
-    name_image_file: str = f'imagens_analise/{image_name}.png'
+    name_image_file: str = f'{output_directory}/{image_name}.png'
     plt.savefig(name_image_file, dpi=300, bbox_inches="tight")
     print(f'Graphic saved in: {name_image_file}')
     plt.show();
