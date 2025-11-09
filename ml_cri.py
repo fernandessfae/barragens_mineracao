@@ -64,7 +64,6 @@ class CRIModelEvaluator:
         
         print(f"Data split (Holdout): Train={len(X_train)}, Test={len(X_test)}")
 
-
     def train_model(self, name: str) -> None:
         
         if self.X_train is None:
@@ -202,4 +201,4 @@ if __name__ == "__main__":
     for model_name in evaluator_cri.models.keys():
         evaluator_cri.evaluate_model(model_name)
     
-    #evaluator_cri.save_best_model()
+    evaluator_cri.save_best_model()
