@@ -63,7 +63,7 @@ class TestCRIModelEvaluator(unittest.TestCase):
         self.assertEqual(len(self.evaluator.X_test), 4)
     
     def test_train_model_not_split_raises_error(self):
-        self.evaluator.add_model(self.mock_model_dt, 'DT')
+        self.evaluator.add_model(self.mock_model_dt, 'DecisionTree')
         self.evaluator.X_train = None 
 
         with self.assertRaisesRegex(
@@ -75,7 +75,7 @@ class TestCRIModelEvaluator(unittest.TestCase):
     @patch('ml_cri.print')
     def test_train_model_success_stores_results(
         self, mock_print, mock_cm, mock_acc):
-        self.evaluator.add_model(self.mock_model_dt, 'DT')
+        self.evaluator.add_model(self.mock_model_dt, 'DecisionTree')
         self.evaluator.split_data(test_size=0.4, random_state=42)
 
         mock_fit = MagicMock(return_value=self.mock_model_dt)
@@ -84,10 +84,11 @@ class TestCRIModelEvaluator(unittest.TestCase):
         self.mock_model_dt.fit = mock_fit
         self.mock_model_dt.predict = mock_predict
         
-        self.evaluator.train_model('DT')
+        self.evaluator.train_model('DecisionTree')
         
-        self.assertIn('DT', self.evaluator.results)
-        self.assertAlmostEqual(self.evaluator.results['DT']['accuracy'], 0.75)
+        self.assertIn('DecisionTree', self.evaluator.results)
+        self.assertAlmostEqual(
+            self.evaluator.results['DecisionTree']['accuracy'], 0.75)
 
         mock_fit.assert_called_once() 
         mock_predict.assert_called_once() 
@@ -119,12 +120,13 @@ class TestCRIModelEvaluator(unittest.TestCase):
     @patch('ml_cri.os.makedirs')
     def test_evaluate_model_plots_and_reports(
         self, mock_makedirs, mock_plt, MockCM, mock_cr, mock_print):
-        self._setup_trained_model_results('DT', 0.99, self.mock_model_dt)
+        self._setup_trained_model_results(
+            'DecisionTree', 0.99, self.mock_model_dt)
         
         # ConfusionMatrix mock setup
         mock_mc_instance = MockCM.return_value
         
-        self.evaluator.evaluate_model('DT')
+        self.evaluator.evaluate_model('DecisionTree')
 
         mock_cr.assert_called_once()
          
@@ -165,14 +167,15 @@ class TestCRIModelEvaluator(unittest.TestCase):
 
     @patch('ml_cri.open', new_callable=unittest.mock.mock_open)
     @patch.object(
-        CRIModelEvaluator, 'compare_models', return_value=('DT', MagicMock()))
+        CRIModelEvaluator, 'compare_models',
+        return_value=('DecisionTree', MagicMock()))
     @patch('ml_cri.pickle.dump')
     @patch('ml_cri.print')
     def test_save_best_model_success_calls_pickle_dump(
         self, mock_print, mock_dump, mock_compare, mock_file):
         
         self.evaluator.results = {
-            'DT': {'accuracy': 0.9, 'model': mock_compare.return_value[1]}}
+            'DecisionTree': {'accuracy': 0.9, 'model': mock_compare.return_value[1]}}
         
         self.evaluator.save_best_model('custom_output.pkl')
         
