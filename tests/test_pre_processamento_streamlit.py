@@ -14,7 +14,7 @@ class TestPreProcessamento(unittest.TestCase):
     def test_init_stores_input_value(self):
         input_value = "Rocha sã"
         prep = PreProcessamento(input_value)
-        self.assertEqual(prep.valor_entrada, input_value)
+        self.assertEqual(prep.input_value, input_value)
 
     def test_idade_barragem(self):
         test_cases = [
