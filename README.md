@@ -6,12 +6,12 @@
 - [Análise Geral](https://github.com/fernandessfae/barragens_mineracao#an%C3%A1lise-geral)
     - [Construtores](https://github.com/fernandessfae/barragens_mineracao#construtores) 
     - [Localização](https://github.com/fernandessfae/barragens_mineracao#localiza%C3%A7%C3%A3o)
+    - [Minérios presentes](https://github.com/fernandessfae/barragens_mineracao#min%C3%A9rios-presentes)
     - [Categoria de Risco Iminente (CRI)](https://github.com/fernandessfae/barragens_mineracao#categoria-de-risco-iminente-cri)
     - [Dano Potencial Associado](https://github.com/fernandessfae/barragens_mineracao#dano-potencial-associado-dpa)
     - [Plano de Ação de Emergências para Barragens de Mineração (PAEBM)](https://github.com/fernandessfae/barragens_mineracao#plano-de-a%C3%A7%C3%A3o-de-emerg%C3%AAncias-para-barragens-de-minera%C3%A7%C3%A3o-paebm)
     - [Política Nacional de Segurança de Barragens (PNSB)](https://github.com/fernandessfae/barragens_mineracao#pol%C3%ADtica-nacional-de-seguran%C3%A7a-de-barragens-pnsb)
     - [Nível de emergência](https://github.com/fernandessfae/barragens_mineracao#n%C3%ADvel-de-emerg%C3%AAncia)
-    - [Minérios presentes](https://github.com/fernandessfae/barragens_mineracao#min%C3%A9rios-presentes)
 - [Entendimento do problema](https://github.com/fernandessfae/barragens_mineracao#entendimento-do-problema)
     - [CRI](https://github.com/fernandessfae/barragens_mineracao#cri)
         - [Características Técnicas (CT)](https://github.com/fernandessfae/barragens_mineracao#caracter%C3%ADsticas-t%C3%A9cnicas-ct)
@@ -54,7 +54,7 @@
 
 ## Análise Geral
 
-<div align="justify">Então, para fazer uma nova análise das barragens de mineração, utilizou-se os dados do governo federal, especificamente da agência nacional de mineração (ANM), cujo link pode ser acessado por <a href=”https://dados.gov.br/dataset/barragens-de-mineracao”>aqui</a>, ou pode acessar esses dados aqui no repositório. A última atualização desses dados, no momento em que escrevo, foi de 8 setembro de 2021. No Brasil, todas as barragens ,seja mineração ou água, estão sujeitas a lei 12334/10, que trata sobre a segurança das barragens, que pode ser acessado <a href=https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12334.htm>aqui</a>. É essa lei que trata sobre a política nacional de segurança das barragens (PNSB), cujo intuito é determinar diversos conceitos, parâmetros e obrigações aos empreendedores (donos das barragens) e aos órgãos que fiscalizam a gestão de sua segurança. Depois dessa breve introdução, vamos direto a análise dos dados.</div><br/>
+<div align="justify">Então, para fazer uma nova análise das barragens de mineração, utilizou-se os dados do governo federal, especificamente da agência nacional de mineração (ANM), cujo link pode ser acessado por <a href=”https://dados.gov.br/dataset/barragens-de-mineracao”>aqui</a>, ou pode acessar esses dados aqui no repositório. A última atualização desses dados, no momento em que escrevo, foi de 8 setembro de 2021. No Brasil, todas as barragens ,seja mineração ou água, estão sujeitas a lei 12.334/10, que trata sobre a segurança das barragens, que pode ser acessado <a href=https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2010/lei/l12334.htm>aqui</a>. É essa lei que trata sobre a política nacional de segurança das barragens (PNSB), cujo intuito é determinar diversos conceitos, parâmetros e obrigações aos empreendedores (donos das barragens) e aos órgãos que fiscalizam a gestão de sua segurança. Depois dessa breve introdução, vamos direto a análise dos dados.</div><br/>
 
 ### Construtores
 
@@ -74,6 +74,15 @@
 
 <div align="justify">No gráfico dos estados, percebe-se que <b>Minas Gerais</b> possui a maior quantidade de barragens, seguido de <b>Mato Grosso</b> e <b>Pará</b>. O que mais surpreendeu foi o estado do Mato Grosso vir em segundo lugar, já que é uma novidade esse estado ter uma quantidade considerável de barragens. Inclusive, no vídeo do history channel, mencionado acima, os únicos estados mencionados foram Minas Gerais e Pará, mostrando assim que o Mato Grosso pode ser o próximo estado com uma grande relevância na área de mineração. </div><br/>
 
+### Minérios presentes
+
+<div align="justify">Como a barragem de minério é resulltado final de um processo industrial, é sempre bom saber quais tipos de minério estão presentes nessas barragens. Abaixo está o gráfico com os 10 maiores minérios presentes nas barragens.</div><br/>
+
+<div align="center"><img src="imagens_analise/minerio_barragem.png"/></div>
+<div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
+
+<div align="justify">Vemos que a maioria das barragens não tem esse tipo de minério, mas, tirando essa opção, vemos que o <b>ferro</b>, <b>ouro</b> e <b>cobre</b> são as 3 primeiras opções nas  composições de barragens de minérios.</div><br/>
+
 ### **Categoria de Risco Iminente (CRI)**
 
 <div align="justify">A categoria de risco corresponde ao somatório de outros 3 fatores (características técnicas, estado de conservação e plano de segurança) da barragem para avaliar o índice de vulnerabilidade. Abaixo veremos o CRI das barragens presentes no Brasil.</div><br/>
@@ -90,7 +99,16 @@
 <div align="center"><img src="imagens_analise/dpa.png"/></div>
 <div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
 
-<div align="justify">Esse gráfico do DPA é interessante em relação ao CRI, porque mostra que apesar das maioria das barragens não ter um risco ou ter um risco baixo, na hipótese delas sofrerem algum rompimento, o dano dela em relação ao meio ambiente próximo pode ser potencialmente alto. Mais a frente iremos falar mais sobre esse tópico.</div><br/>
+<div align="justify">Esse gráfico do DPA é interessante em relação ao CRI, porque mostra que apesar das maioria das barragens não ter um risco ou ter um risco baixo, na hipótese delas sofrerem algum rompimento, o dano dela em relação ao meio ambiente próximo pode ser potencialmente alto. Mais a frente iremos falar mais sobre esse tópico.</div>
+
+### Política Nacional de Segurança de Barragens (PNSB)
+
+<div align="justify">A PNSB é uma lei para as barragens de mineração que tem algum nível considerável de periculosidade, seja por causa do tamanho ou resíduo acumulado. Abaixo o gráfico com as barragens com/sem PNSB</div><br/>
+
+<div align="center"><img src="imagens_analise/pnsb.png"/></div>
+<div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
+
+<div align="justify">Observando o gráfico, percebe-se que 54,46% das barragens estão inclusas no PNSB, enquanto 45,54% não. Isso mostra que a maioria das barragens seguem todos os parâmetros exigidos por lei para determinar o seu funcionamento.</div><br/>
 
 ### Plano de Ação de Emergências para Barragens de Mineração (PAEBM)
 
@@ -104,14 +122,8 @@ qual estão identificados os potenciais cenários de emergências da barragem, e
 
 <div align="justify">Observando o gráfico, cerca de 70,19% da barragens não precisam do PAEBM, enquanto 29,81% precisam. Tudo levando a crer que essas barragens tem um CRI e/ou DPA não aplicado ou abaixo.</div><br/>
 
-### Política Nacional de Segurança de Barragens (PNSB)
 
-<div align="justify">A PNSB é uma lei para as barragens de mineração que tem algum nível considerável de periculosidade, seja por causa do tamanho ou resíduo acumulado. Abaixo o gráfico com as barragens com/sem PNSB</div><br/>
-
-<div align="center"><img src="imagens_analise/pnsb.png"/></div>
-<div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
-
-<div align="justify">Observando o gráfico, percebe-se que 54,46% das barragens estão inclusas no PNSB, enquanto 45,54% não. Isso mostra que a maioria das barragens seguem todos os parâmetros exigidos por lei para determinar o seu funcionamento.</div>
+<div align='justify'>Ou seja, observando os dois gráficos anteriores, a maioria das barragens estão na politica nacional de barragens, mas uma grande maioria não possui um plano de emergência caso venha ocorrer algum desatre. </div>
 
 ### Nível de emergência
 
@@ -122,15 +134,6 @@ qual estão identificados os potenciais cenários de emergências da barragem, e
 
 <div align="justify">Como podemos perceber no gráfico, esmagadora maioria das barragens estão sem ou baixo nível de emergência. O que é um ótimo sinal, mostrando que a maioria das barragens estão com o seu monitoramento em dia.</div><br/>
 
-### Minérios presentes
-
-<div align="justify">Como a barragem de minério é resulltado final de um processo industrial, é sempre bom saber quais tipos de minério estão presentes nessas barragens. Abaixo está o gráfico com os 10 maiores minérios presentes nas barragens.</div><br/>
-
-<div align="center"><img src="imagens_analise/minerio_barragem.png"/></div>
-<div align="center">Fonte: Arquivo pessoal (2022)</div><br/>
-
-<div align="justify">Vemos que a maioria das barragens não tem esse tipo de minério, mas, tirando essa opção, vemos que o <b>ferro</b>, <b>ouro</b> e <b>cobre</b> são as 3 primeiras opções nas  composições de barragens de minérios.</div><br/>
-
 <div align="justify">Como podemos perceber através dos gráficos, as informações de destaque são as seguintes: Grande parte das barragens foram construídas pela VALE e suas filiais, a localização da maioria das barragens ficam em Minas Gerais, a maioria das barragens tem a categoria de risco baixa ou inexistente, porém em relação ao DPA, uma grande parte não existe, mas há uma boa parte com o DPA alto, a maioria das barragens não necessitam do PAEBM, das mesma forma que grande parte das barragens não se enquadram no PNSB, a grande maioria também estão sem algum tipo de nível de emergência e os resíduos presentes nessas barragens não foram informados ou não possuem.</div><br/>
 
 <div align="justify">Como deu para perceber, isso foi apenas um panorama geral com as informações que eu achei mais relevantes a primeiro momento. Mas é possível extrair mais informações com essa base de dados, que já foi disponibilizada via link do site do governo federal e/ou estará presente no repositório. Logo mais adiante, iremos ver uma forma mais interessante de fazer a classificação de futuras barragens.</div><br/>
@@ -139,7 +142,9 @@ qual estão identificados os potenciais cenários de emergências da barragem, e
 
 <div align="justify">Podemos ver que o monitoramento de barragens é algo de suma importância, mas teria como identificar aquelas barragens com um alto potencial de risco e dano? Bom, agora podemos dizer que sim, é possível, mas como? Então, é ai que entra a tecnologia, mais especificamente os algoritmos de machine learning e a inteligência artificial, afinal são elas que resolvem esse tipo de problema, e muitos outros. Entretanto, antes de fazer os algoritmos, é necessário entender o problema, para a partir daí preparar uma solução robusta. Então, vamos lá. </div><br/>
 
-<div align="justify">Para entender como classificar futuras construções de barragens de minério, é necessário entender a sua classificação, e para isso optei por acessar esse <a href=https://www.geoscan.com.br/blog/classificacao-de-barragens/>site</a>, que fala mais sobre a classificação das barragem, que, mesmo de diferindo um pouco das barragens de rejeitos de minérios, já serve como parâmetro para entendimento do problema. Resumidamente, os fatores mais importantes para classificação das barragens são: categoria de risco da barragem (CRI) e o dano potencial da barragem (DPA), que serão comentados logo mais abaixo.</div><br/>
+<div align='justify'>Primeiramente, o ponto de partida foi entender os dados que tinha sobre as barragens. Entender as colunas, linhas, valores ausentes, tudo que fosse importante para dar algum tipo de resposta para então saber como montar uma solução para o problema em questão. Abaixo está um fluxograma mais elaborado de como eu montei tudo para chegar ao resultado final.</div><br/>
+
+<div align="center"><img src="fluxograma_2.png"/></div>
 
 ### CRI
 
@@ -197,9 +202,11 @@ Cada item refere-se a um aspecto do funcionamento da barragem, e o somatório to
 - Impacto ambiental<br/>
 - Impacto socioeconômico<br/>
 
-Apesar de ter apenas uma categoria e menos itens do que o CRI, o DPA tem uma relevância um pouco mais elevada. Após o entendimento de cada categoria, vamos entrar mais a fundo sobre esses dados.</div><br/>
+Apesar de ter apenas uma categoria e menos itens do que o CRI, o DPA tem uma relevância um pouco mais elevada. Após o entendimento de cada categoria, vamos entrar mais a fundo sobre esses dados.</div>
 
 <div align=”justify”>No final, o resultado da classificação DPA são divididos em: ‘Não se aplica’, ‘Baixa’, ‘Média’, ‘Alta’.</div><br/>
+
+<div align="justify">Para entender como classificar futuras construções de barragens de minério, é necessário entender a sua classificação, e para isso optei por acessar esse <a href=https://www.geoscan.com.br/blog/classificacao-de-barragens/>site</a>, que fala mais sobre a classificação das barragem, que, mesmo de diferindo um pouco das barragens de rejeitos de minérios, já serve como parâmetro para entendimento do problema. Foi com base nesse site que consegui criar toda a lógica para classificar as barragens através do CRI e DPA, assim como entender tudo para criar a solução.</div><br/>
 
 ## Pre-processamento dos dados
 
@@ -279,7 +286,7 @@ Apesar de ter apenas uma categoria e menos itens do que o CRI, o DPA tem uma rel
 
 ### Precisão
 
-<div align="justify">A precisão diz respeito à quantidade (proporcional) de identificações positivas feita corretamente. Nesse caso específico, ele informa a proporção de acerto que o modelo fez para cada classe. Os valores vão de 0 (acerto mínimo) até 1(acerto máximo).</div><br/>
+<div align="justify">A precisão diz respeito à quantidade (proporcional) de identificações positivas feita corretamente. Nesse caso específico, ele informa a proporção de acerto que o modelo fez para cada classe. Os valores vão de 0 (acerto mínimo) até 1 (acerto máximo).</div><br/>
 
 #### CRI
 
@@ -349,15 +356,15 @@ Apesar de ter apenas uma categoria e menos itens do que o CRI, o DPA tem uma rel
 
 <div align="justify">Depois de verificar todas as métricas necessárias para avaliar corretamente um modelo, vemos que, no geral, o modelo <b>Random Forest</b> foi o que se saiu melhor para a classificação CRI e DPA, utilizando o F1-Score com parâmetro, entretanto isso não significa que não pode escolher apenas um modelo para cada os dois tipos de classificação. Uma observação quanto a classe DPA, é que todos os modelos tiveram dificuldade para prever as classes ‘Não se aplicar’ e ‘Baixa’, isso poderia ser resolvido caso opta-se por  fazer um pré-processamento e colocar todos os dados da classe ‘Não se aplica’ para ‘Baixa’, ou considerar ambos os resultados. Como aqui a prioridade é fazer um modelo que reconheça a classificação ‘Média’ ou ‘Alta’, tanto para CRI quanto DPA, e não está tendo um rigor nesse projeto, podemos seguir adiante com o modelo escolhido.</div><br/>
 
-<div align="justify">Não pode esquecer que, após escolhido o modelo escolhido, é necessário salvar o algoritmo para ser utilizado no deploy, que será visto logo a seguir.</div>
+<div align="justify">Não pode esquecer que, após escolhido o modelo escolhido, é necessário salvar o algoritmo para ser utilizado no deploy, que será visto logo a seguir. E, para mim, avaliando todas as métricas, e tendo como prioridade a detecção da classe 'Alta', optei por utilizar o algoritmo 'SVM' para a categoria 'CRI' e o algoritmo 'Decision Tree' para a categoria 'DPA' para serem lançados para o deploy.</div>
 
 ## Deploy
 
-<div align="justify">Depois de fazer a análise dos dados, definir a resolução do problema e criar o(s) algoritmos necessários, agora chegou-se a parte final do projeto, chamado deploy. Este é, nada mais nada menos, que colocar o modelo em produção e disponibilizar para o cliente final. É nessa etapa que alguns aspectos do código são corrigidos, aperfeiçoados ou eliminados. É um teste de qualidade para que o modelo de classificação esteja bem desenvolvido para o lançamento. Para vermos o resultado final desse projeto, basta acessar esse <a href=https://share.streamlit.io/fernandessfae/barragens_mineracao/streamlit_ml_app.py>link</a> e experimentar fazer a classificação das barragens de rejeito de mineração.</div><br/>
+<div align="justify">Depois de fazer a análise dos dados, definir a resolução do problema e criar o(s) algoritmos necessários, agora chegou-se a parte final do projeto, chamado deploy. Este é, nada mais nada menos, que colocar o modelo em produção e disponibilizar para o cliente final. É nessa etapa que alguns aspectos do código são corrigidos, aperfeiçoados ou eliminados. É um teste de qualidade para que o modelo de classificação esteja bem desenvolvido para o lançamento. Para vermos o resultado final desse projeto, basta acessar esse <a href=https://previsaobarragensmineracao.streamlit.app/>link</a> e experimentar fazer a classificação das barragens de rejeito de mineração.</div><br/>
 
 ## Conclusão
 
-<div align="justify">Após esse projeto com várias etapas, ficou evidente que os dados referentes as barragens de mineração em todo o Brasil abre um leque de possibilidades, desde a geração de gráficos para geração de informações importantes, ate a criação de modelos de machine learning para classificar o risco e dano potencial de uma barragem de mineração quaisquer ou até mesmo fazer uma simulação de uma construção de uma futura barragem, mostrando a importância da programação para todos esses fins citados anteriormente. Isso é de suma importância para profissionais que desejam se destacar no mercado de trabalho, neste caso específico, isso é importante, principalmente, para engenheiros civis (estudo de materiais para simulação das barragens de acordo com aquela área) e engenheiros ambientais (estudos de impactos socioeconômico-ambientais daquela área com a ,futura, presença da barragem) . Não foi uma tarefa fácil, já que contou com muitas etapas, mas o resultado é uma satisfação imensa e sensação de dever cumprido. No mais, agradeço a todos que leram toda essa documentação para entender todo o procedimento.</div>
+<div align="justify">Após esse projeto com várias etapas, ficou evidente que os dados referentes as barragens de mineração em todo o Brasil abre um leque de possibilidades, desde a geração de gráficos para geração de informações importantes, ate a criação de modelos de machine learning para classificar o risco e dano potencial de uma barragem de mineração quaisquer ou até mesmo fazer uma simulação de uma construção de uma futura barragem, mostrando a importância da programação para todos esses fins citados anteriormente. Isso é de suma importância para profissionais que desejam se destacar no mercado de trabalho, neste caso específico, isso é importante, principalmente, para engenheiros civis (estudo de materiais para simulação das barragens de acordo com aquela área) e engenheiros ambientais (estudos de impactos socioeconômico-ambientais daquela área com a futura, presença da barragem). Não foi uma tarefa fácil, já que contou com muitas etapas, mas o resultado é uma satisfação imensa e sensação de dever cumprido. No mais, agradeço a todos que leram toda essa documentação para entender todo o procedimento.</div><br/>
 
 <div align="justify">Ah, para o pessoal que trabalha com programação que deseja saber quais bibliotecas eu utilizei, ou até mesmo a quem se interessar,estará no arquivo <a href=https://github.com/fernandessfae/barragens_mineracao/blob/master/requirements.txt>requirements.txt</a>, assim como os outros scripts estarão tudo documentado para um melhor entendimento. Mas, mesmo assim, caso ainda tenha dúvidas, basta entrar em contato com as minhas redes, presente no meu perfil do <a href=https://github.com/fernandessfae>GitHub</a>. Até mais e que Deus o abençoe!</div>
 
